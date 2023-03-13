@@ -1,3 +1,5 @@
+import styles from '@styles/components/text.css'
+
 const text = ({ type, content }) => {
     let text
     switch (type) {

@@ -5,6 +5,8 @@ import Logo from '@components/logo'
 import Text from '@components/text'
 import Input from '@components/input'
 
+import style from '@styles/pages/login.css'
+
 const login = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
@@ -15,8 +17,10 @@ const login = () => {
     }
 
     return (
-        <div>
-            <Logo />
+        <div id='login'>
+            <div className='logo'>
+                <Logo />
+            </div>
 
             <div className='welcome'>
                 <Text

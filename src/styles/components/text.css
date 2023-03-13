@@ -1,0 +1,33 @@
+h1 {
+    font-size: 30pt;
+}
+strong {
+    font-size: 20pt;
+}
+span {
+    font-size: 14pt;
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 52pt;
+    }
+    strong {
+        font-size: 36pt;
+    }
+    span {
+        font-size: 22pt;
+    }
+}
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 44pt;
+    }
+    strong {
+        font-size: 28pt;
+    }
+    span {
+        font-size: 16pt;
+    }
+}
