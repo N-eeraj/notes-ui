@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-const input = ({ stateChanger, ...props }) => {
+const input = ({ stateChanger, type, placeholder }) => {
     return (
         <input
-            type={ props.type }
-            placeholder={ props.placeholder }
+            type={ type }
+            placeholder={ placeholder }
             onInput={ e => stateChanger(e.target.value) } />
     )
 }

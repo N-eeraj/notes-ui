@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import Logo from '@components/logo'
+import Text from '@components/text'
 import Input from '@components/input'
 
 const login = () => {
@@ -12,19 +16,39 @@ const login = () => {
 
     return (
         <div>
-            <Input
-                stateChanger={ setEmail }
-                type="email"
-                placeholder="Email Address" />
+            <Logo />
 
-            <Input
-                stateChanger={ setPassword }
-                type="password"
-                placeholder="Password" />
+            <div className='welcome'>
+                <Text
+                    type='title'
+                    content='Welcome Back' />
 
-            <button onClick={ login }>
-                Login
-            </button>
+                <Text content='Sign in to continue' />
+            </div>
+
+            <div className='form'>
+                <Input
+                    stateChanger={ setEmail }
+                    type='email'
+                    placeholder='Email Address' />
+
+                <Input
+                    stateChanger={ setPassword }
+                    type='password'
+                    placeholder='Password' />
+
+                <button onClick={ login }>
+                    Login
+                </button>
+            </div>
+
+            <div className='invite'>
+                <Text content='New User?' />
+
+                <Link to='/register'>
+                    Register Here
+                </Link>
+            </div>
         </div>
     )
 }
