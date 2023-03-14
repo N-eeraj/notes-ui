@@ -1,9 +1,11 @@
 import '@styles/components/UI/button.css'
 
-const Button = ({ stateChanger, text }) => {
+const Button = ({ stateChanger, text, loading, disabled }) => {
     return (
-        <button onClick={ stateChanger }>
-            { text }
+        <button
+            disabled={ disabled || loading }
+            onClick={ stateChanger }>
+            { loading ? 'Loading...' : text }
         </button>
     )
 }

@@ -17,8 +17,10 @@ const Login = () => {
 
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
+    const[loading, setLoading] = useState(false)
 
     const loginAPICall = async () => {
+        setLoading(true)
         try {
             const { data } = await api.post('/login', {
                 email,
@@ -32,6 +34,9 @@ const Login = () => {
         catch (err) {
             const message = err?.response ? err?.response?.data?.message : 'Oops something went wrong'
             toast.error(message)
+        }
+        finally {
+            setLoading(false)
         }
     }
 
@@ -70,7 +75,8 @@ const Login = () => {
 
                     <Button
                         stateChanger={ validateInputs }
-                        text='Login' />
+                        text='Login'
+                        loading={ loading } />
                 </div>
 
                 <Invite

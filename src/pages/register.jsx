@@ -18,8 +18,10 @@ const Register = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
+    const[loading, setLoading] = useState(false)
 
     const registerAPICall = async () => {
+        setLoading(true)
         try {
             const { data } = await api.post('/register', {
                 email,
@@ -34,6 +36,9 @@ const Register = () => {
         catch (err) {
             const message = err?.response ? err?.response?.data?.message : 'Oops something went wrong'
             toast.error(message)
+        }
+        finally {
+            setLoading(false)
         }
     }
 
@@ -77,7 +82,8 @@ const Register = () => {
 
                     <Button
                         stateChanger={ validateInputs }
-                        text='Register' />
+                        text='Register'
+                        loading={ loading } />
                 </div>
 
                 <Invite
