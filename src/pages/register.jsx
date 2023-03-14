@@ -8,6 +8,8 @@ import Decoration from '@components/user-form/decoration'
 
 import { emailValidator, passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
 
+import { toast } from 'react-toastify'
+
 const Register = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
@@ -21,7 +23,7 @@ const Register = () => {
             confirmPasswordValidator(confirmPassword, password)
         }
         catch (err) {
-            console.log(err)
+            toast.error(err)
         }
     }
 

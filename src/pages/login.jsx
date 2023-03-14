@@ -8,6 +8,8 @@ import Decoration from '@components/user-form/decoration'
 
 import { emailValidator, passwordValidator } from '@validators'
 
+import { toast } from 'react-toastify'
+
 const Login = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
@@ -18,7 +20,7 @@ const Login = () => {
             passwordValidator(password)
         }
         catch (err) {
-            console.log(err)
+            toast.error(err)
         }
     }
 
