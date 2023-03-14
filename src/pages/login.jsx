@@ -6,13 +6,20 @@ import Welcome from '@components/user-form/welcome'
 import Invite from '@components/user-form/invite'
 import Decoration from '@components/user-form/decoration'
 
+import { emailValidator, passwordValidator } from '@validators'
+
 const Login = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
 
-    const loginAction = () => {
-        console.log(email)
-        console.log(password)
+    const validateInputs = () => {
+        try {
+            emailValidator(email)
+            passwordValidator(password)
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 
     return (
@@ -37,7 +44,7 @@ const Login = () => {
                         placeholder='Password' />
 
                     <Button
-                        stateChanger={ loginAction }
+                        stateChanger={ validateInputs }
                         text='Login' />
                 </div>
 
