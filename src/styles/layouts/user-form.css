@@ -1,5 +1,5 @@
 #user_layout {
-    height: 100dvh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     padding: 0 5%;
@@ -38,4 +38,22 @@
 
 .link {
     color: var(--primary);
+}
+
+@media screen and (min-width: 600px) {
+    #user_layout {
+        align-items: center;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .main-container {
+        width: 500px;
+    }
+
+    .welcome {
+        text-align: center;
+    }
 }

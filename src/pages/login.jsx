@@ -15,7 +15,7 @@ const login = () => {
     }
 
     return (
-        <div>
+        <div className='main-container'>
             <div className='welcome'>
                 <Text
                     type='title'
