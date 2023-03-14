@@ -1,8 +1,8 @@
 #user_layout {
-    min-height: 100dvh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    padding: 0 5%;
+    padding: 5%;
 }
 
 .logo {
@@ -24,7 +24,7 @@
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 899px) {
     #user_layout {
         align-items: center;
     }
@@ -35,5 +35,35 @@
 
     .main-container {
         width: 500px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #user_layout {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logo {
+        position: fixed;
+        top: 1vmin;
+        width: 100px;
+        margin-top: 0;
+    }
+    .logo.left {
+        left: 1vmin;
+    }
+    .logo.right {
+        right: 1vmin;
+    }
+    
+    .main-container {
+        width: 50vw;
+        padding: 5%;
+    }
+
+    .form {
+        max-width: 500px;
     }
 }

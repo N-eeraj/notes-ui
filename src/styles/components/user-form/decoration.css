@@ -1,0 +1,18 @@
+.decoration-container {
+    display: none;
+    width: 50vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(180deg, #00AAFF, #00FF7F);
+}
+
+.decoration-container img {
+    width: 50%;
+}
+
+@media screen and (min-width: 900px) {
+    .decoration-container {
+        display: flex;
+    }
+}
