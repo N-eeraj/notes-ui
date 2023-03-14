@@ -1,4 +1,4 @@
-import '@styles/components/button.css'
+import '@styles/components/UI/button.css'
 
 const Button = ({ stateChanger, text }) => {
     return (

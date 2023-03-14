@@ -1,0 +1,10 @@
+.invite {
+    margin-top: 30px;
+}
+.invite a {
+    margin-left: 10px;
+}
+
+.link {
+    color: var(--primary);
+}

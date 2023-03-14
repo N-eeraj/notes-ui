@@ -1,8 +1,6 @@
-import { useState } from 'react'
+import '@styles/components/UI/input.css'
 
-import '@styles/components/input.css'
-
-const input = ({ stateChanger, type, placeholder, focus }) => {
+const Input = ({ stateChanger, type, placeholder, focus }) => {
     return (
         <input
             type={ type }
@@ -12,4 +10,4 @@ const input = ({ stateChanger, type, placeholder, focus }) => {
     )
 }
 
-export default input
+export default Input

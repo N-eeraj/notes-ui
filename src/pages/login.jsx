@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
-import Text from '@components/UI/text'
 import Input from '@components/UI/input'
 import Button from '@components/UI/button'
+import Welcome from '@components/user-form/welcome'
+import Invite from '@components/user-form/invite'
 
 const login = () => {
     const[email, setEmail] = useState('')
@@ -16,13 +16,9 @@ const login = () => {
 
     return (
         <div className='main-container'>
-            <div className='welcome'>
-                <Text
-                    type='title'
-                    content='Welcome Back' />
-
-                <Text content='Sign in to continue' />
-            </div>
+            <Welcome
+                title='Welcome Back'
+                text='Sign in to continue' />
 
             <div className='form'>
                 <Input
@@ -41,15 +37,10 @@ const login = () => {
                     text='Login' />
             </div>
 
-            <div className='invite'>
-                <Text content='New User?' />
-
-                <Link
-                    to='/register'
-                    className='link'>
-                    Register Here
-                </Link>
-            </div>
+            <Invite
+                prompt='New User?'
+                route='/register'
+                linkText='Register Here' />
         </div>
     )
 }

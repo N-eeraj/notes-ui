@@ -1,6 +1,6 @@
-import '@styles/components/text.css'
+import '@styles/components/UI/text.css'
 
-const text = ({ type, content }) => {
+const Text = ({ type, content }) => {
     let text
     switch (type) {
         case 'title':
@@ -15,4 +15,4 @@ const text = ({ type, content }) => {
     return text
 }
 
-export default text
+export default Text
