@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import Input from '@components/UI/input'
 import Button from '@components/UI/button'
@@ -8,19 +9,32 @@ import Decoration from '@components/user-form/decoration'
 
 import { emailValidator, passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
 
-import { toast } from 'react-toastify'
+import { toast } from '@toast'
+import api from '@axios'
 
 const Register = () => {
+    const navigate = useNavigate()
+
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
 
-    const callAPI = () => {
-        console.log({
-            email,
-            password,
-            confirmPassword
-        })
+    const registerAPICall = async () => {
+        try {
+            const { data } = await api.post('/register', {
+                email,
+                password,
+                confirm_password: confirmPassword
+            })
+            if (!data.success) throw null
+            localStorage.setItem('authToken', data.token)
+            toast.success(data.message)
+            navigate('/')
+        }
+        catch (err) {
+            const message = err?.response ? err?.response?.data?.message : 'Oops something went wrong'
+            toast.error(message)
+        }
     }
 
     const validateInputs = () => {
@@ -30,7 +44,7 @@ const Register = () => {
             newPasswordValidator(password)
             confirmPasswordValidator(confirmPassword, password)
 
-            callAPI()
+            registerAPICall()
         }
         catch (err) {
             toast.error(err)
