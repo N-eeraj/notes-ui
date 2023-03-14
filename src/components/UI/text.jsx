@@ -1,4 +1,4 @@
-import styles from '@styles/components/text.css'
+import '@styles/components/text.css'
 
 const text = ({ type, content }) => {
     let text

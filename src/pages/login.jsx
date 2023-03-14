@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Logo from '@components/logo'
-import Text from '@components/text'
-import Input from '@components/input'
+import Text from '@components/UI/text'
+import Input from '@components/UI/input'
 
-import style from '@styles/pages/login.css'
+import '@styles/layouts/user-form.css'
 
 const login = () => {
     const[email, setEmail] = useState('')
@@ -49,7 +49,9 @@ const login = () => {
             <div className='invite'>
                 <Text content='New User?' />
 
-                <Link to='/register'>
+                <Link
+                    to='/register'
+                    className='link'>
                     Register Here
                 </Link>
             </div>

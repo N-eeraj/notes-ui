@@ -1,4 +1,4 @@
-import styles from '@styles/components/logo.css'
+import '@styles/components/logo.css'
 
 const logo = () => {
     return (
