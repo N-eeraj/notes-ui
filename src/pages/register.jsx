@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 
 import Text from '@components/UI/text'
 import Input from '@components/UI/input'
+import Button from '@components/UI/button'
 
-const login = () => {
+const register = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
 
-    const login = () => {
+    const registerAction = () => {
         console.log(email)
         console.log(password)
         console.log(confirmPassword)
@@ -42,9 +43,9 @@ const login = () => {
                     type='password'
                     placeholder='Confirm Password' />
 
-                <button onClick={ login }>
-                    Register
-                </button>
+                <Button
+                    stateChanger={ registerAction }
+                    text='Register' />
             </div>
 
             <div className='invite'>
@@ -60,4 +61,4 @@ const login = () => {
     )
 }
 
-export default login
+export default register

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 
 import Text from '@components/UI/text'
 import Input from '@components/UI/input'
+import Button from '@components/UI/button'
 
 const login = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
 
-    const login = () => {
+    const loginAction = () => {
         console.log(email)
         console.log(password)
     }
@@ -35,9 +36,9 @@ const login = () => {
                     type='password'
                     placeholder='Password' />
 
-                <button onClick={ login }>
-                    Login
-                </button>
+                <Button
+                    stateChanger={ loginAction }
+                    text='Login' />
             </div>
 
             <div className='invite'>
