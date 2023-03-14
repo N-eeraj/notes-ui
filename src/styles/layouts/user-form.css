@@ -1,4 +1,4 @@
-#login, #register {
+#user_layout {
     height: 100dvh;
     display: flex;
     flex-direction: column;
