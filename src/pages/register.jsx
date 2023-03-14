@@ -15,12 +15,22 @@ const Register = () => {
     const[password, setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
 
+    const callAPI = () => {
+        console.log({
+            email,
+            password,
+            confirmPassword
+        })
+    }
+
     const validateInputs = () => {
         try {
             emailValidator(email)
             passwordValidator(password)
             newPasswordValidator(password)
             confirmPasswordValidator(confirmPassword, password)
+
+            callAPI()
         }
         catch (err) {
             toast.error(err)

@@ -10,6 +10,8 @@ export default defineConfig({
       '@layouts' : path.resolve(__dirname, './src/layouts'),
       '@pages' : path.resolve(__dirname, './src/pages'),
       '@components' : path.resolve(__dirname, './src/components'),
+      '@toast' : path.resolve(__dirname, './src/utils/toast.js'),
+      '@axios' : path.resolve(__dirname, './src/utils/axios.js'),
       '@validators' : path.resolve(__dirname, './src/utils/validator.js'),
       '@styles' : path.resolve(__dirname, './src/styles'),
     },
