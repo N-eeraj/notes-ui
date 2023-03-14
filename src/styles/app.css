@@ -2,12 +2,18 @@
 
 :root {
     --primary: #0099EF;
+    --accent: #0C6;
+    --dark-grey: #222;
+    --light-grey: #AAA;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: 'Monda', sans-serif;
+    color: var(--dark-grey);
+    border: none;
+    outline: none;
 }
 
 a {

@@ -1,0 +1,14 @@
+input {
+    height: 30px;
+    padding: 5px;
+    border: 1px solid var(--light-grey);
+    border-radius: 7px;
+}
+
+input::placeholder {
+    color: var(--light-grey);
+}
+
+input:focus, input:active {
+    border-color: var(--primary);
+}

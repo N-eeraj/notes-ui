@@ -29,7 +29,8 @@ const login = () => {
                 <Input
                     stateChanger={ setEmail }
                     type='email'
-                    placeholder='Email Address' />
+                    placeholder='Email Address'
+                    focus={ true } />
 
                 <Input
                     stateChanger={ setPassword }

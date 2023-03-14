@@ -1,11 +1,14 @@
 import { useState } from 'react'
 
-const input = ({ stateChanger, type, placeholder }) => {
+import '@styles/components/input.css'
+
+const input = ({ stateChanger, type, placeholder, focus }) => {
     return (
         <input
             type={ type }
             placeholder={ placeholder }
-            onInput={ e => stateChanger(e.target.value) } />
+            onInput={ e => stateChanger(e.target.value) }
+            autoFocus={ focus } />
     )
 }
 
