@@ -11,6 +11,7 @@ import { emailValidator, passwordValidator } from '@validators'
 
 import { toast } from '@toast'
 import api from '@axios'
+import saveToken from '@utils/saveToken'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -26,9 +27,10 @@ const Login = () => {
                 email,
                 password
             })
-            if (!data.success) throw null
-            localStorage.setItem('authToken', data.token)
+            if (!(data.success && data.token)) throw null
+            toast.dismiss()
             toast.success(data.message)
+            await saveToken(data.token)
             navigate('/')
         }
         catch (err) {
