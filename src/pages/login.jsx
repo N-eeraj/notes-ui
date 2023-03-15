@@ -78,7 +78,8 @@ const Login = () => {
                     <Button
                         stateChanger={ validateInputs }
                         text='Login'
-                        loading={ loading } />
+                        loading={ loading }
+                        className='submit' />
                 </div>
 
                 <Invite

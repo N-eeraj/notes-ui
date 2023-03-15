@@ -1,12 +1,29 @@
+import { useState } from 'react'
+
 import '@styles/components/UI/input.css'
 
 const Input = ({ stateChanger, type, placeholder, focus }) => {
+    const [passwordVisiblity, setPasswordVisiblity] = useState(false)
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisiblity(visibility => !visibility)
+    }
+
     return (
-        <input
-            type={ type }
-            placeholder={ placeholder }
-            onInput={ e => stateChanger(e.target.value) }
-            autoFocus={ focus } />
+        <div className='input-wrapper'>
+            <input
+                type={ passwordVisiblity ? 'text' : type }
+                placeholder={ placeholder }
+                onInput={ e => stateChanger(e.target.value) }
+                autoFocus={ focus }
+                className='custom-input' />
+            {
+                type === 'password' &&
+                <button
+                    className={ `password-toggle ${passwordVisiblity ? 'show' : 'hide'}`}
+                    onClick={ togglePasswordVisibility } />
+            }
+        </div>
     )
 }
 

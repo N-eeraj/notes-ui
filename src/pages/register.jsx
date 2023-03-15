@@ -85,7 +85,8 @@ const Register = () => {
                     <Button
                         stateChanger={ validateInputs }
                         text='Register'
-                        loading={ loading } />
+                        loading={ loading }
+                        className='submit' />
                 </div>
 
                 <Invite

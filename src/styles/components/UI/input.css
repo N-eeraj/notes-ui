@@ -1,15 +1,37 @@
-input {
-    height: 50px;
+.input-wrapper {
+    position: relative;
     min-width: 200px;
+}
+
+.custom-input {
+    height: 50px;
+    width: 100%;
     padding: 5px 10px;
     border: 1px solid var(--light-grey);
     border-radius: 7px;
 }
 
-input::placeholder {
+.custom-input::placeholder {
     color: var(--light-grey);
 }
 
-input:focus, input:active {
+.custom-input:focus, .custom-input:active {
     border-color: var(--primary);
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 25px;
+    height: 25px;
+    transform: translateY(-50%);
+    background-size: contain;
+    cursor: pointer;
+}
+.password-toggle.show {
+    background-image: url('/icons/password-show.svg');
+}
+.password-toggle.hide {
+    background-image: url('/icons/password-hide.svg');
 }
