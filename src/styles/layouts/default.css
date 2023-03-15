@@ -1,0 +1,20 @@
+#default_layout nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: clamp(75px, 10vh, 100px);
+    padding: 0 5%;
+    background-color: var(--dark-grey);
+}
+
+#default_layout .logo {
+    height: 80%;
+}
+
+#default_layout .profile-icon {
+    height: 80%;
+    aspect-ratio: 1;
+    background-color: transparent;
+    background: url('/icons/user.svg') no-repeat center;
+    background-size: 70%;
+}
