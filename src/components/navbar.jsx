@@ -7,8 +7,6 @@ import { toast } from '@toast'
 import api from '@axios'
 import saveToken from '@utils/saveToken'
 
-import '@styles/layouts/navbar.css'
-
 const Navbar = () => {
     const navigate = useNavigate()
 
@@ -22,16 +20,18 @@ const Navbar = () => {
     const handleChangePassword = () => {
         console.log('handleChangePassword')
     }
-    
+
+    const navigateHome = () => navigate('/')
+
     const handleLogout = async () => {
         try {
             const { data } = await api.post('/logout')
             if (!data.success) throw null
             saveToken(null)
             navigate('/login')
+            toast.success(data.message)
         }
         catch (err) {
-            console.log(err)
             const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
             toast.error(message)
         }
@@ -42,12 +42,14 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('click', null)
         }
-    })
+    }, [])
     
 
     return (
         <nav>
-            <Logo className='logo' />
+            <Logo
+                className='logo'
+                stateChanger={ navigateHome } />
 
             <button
                 className='profile-icon'

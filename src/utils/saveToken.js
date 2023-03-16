@@ -7,7 +7,7 @@ const saveToken = token => {
         localStorage.removeItem('authToken')
 
     api.interceptors.request.use(config => {
-        config.headers.Authorization = `Bearer ${token}`
+        config.headers.Authorization = `Bearer ${localStorage.getItem('authToken')}`
         return config
     })
 }

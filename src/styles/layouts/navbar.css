@@ -1,3 +1,7 @@
+#default_layout {
+    margin-top: clamp(75px, 10vh, 100px);
+}
+
 #default_layout nav {
     position: fixed;
     top: 0;
@@ -12,6 +16,7 @@
 
 #default_layout .logo {
     height: 80%;
+    cursor: pointer;
 }
 
 #default_layout .profile-icon {
@@ -33,7 +38,7 @@
 }
 
 #default_layout .option {
-    padding: 5px;
+    padding: 5px 10px;
     color: var(--primary);
     text-align: right;
     cursor: pointer;

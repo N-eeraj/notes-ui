@@ -3,6 +3,8 @@ import { Outlet, useNavigate } from 'react-router'
 
 import Navbar from '@components/navbar'
 
+import '@styles/layouts/navbar.css'
+
 const DefaultLayout = () => {
     const navigate = useNavigate()
     useEffect(() => {

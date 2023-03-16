@@ -32,7 +32,7 @@ const Register = () => {
             if (!(data.success && data.token)) throw null
             toast.dismiss()
             toast.success(data.message)
-            await saveToken(data.token)
+            saveToken(data.token)
             navigate('/')
         }
         catch (err) {
