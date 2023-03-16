@@ -1,8 +1,12 @@
 import api from '@axios'
 
-const saveToken = async token => {
-    localStorage.setItem('authToken', token)
-    await api.interceptors.request.use(config => {
+const saveToken = token => {
+    if (token)
+        localStorage.setItem('authToken', token)
+    else
+        localStorage.removeItem('authToken')
+
+    api.interceptors.request.use(config => {
         config.headers.Authorization = `Bearer ${token}`
         return config
     })

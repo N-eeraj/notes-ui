@@ -28,13 +28,14 @@ const Login = () => {
                 password
             })
             if (!(data.success && data.token)) throw null
+
             toast.dismiss()
             toast.success(data.message)
-            await saveToken(data.token)
+            saveToken(data.token)
             navigate('/')
         }
         catch (err) {
-            const message = err?.response ? err?.response?.data?.message : 'Oops something went wrong'
+            const message = err?.response?.data?.message || 'Oops something went wrong'
             toast.error(message)
         }
         finally {

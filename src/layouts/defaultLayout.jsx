@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router'
 
-import Logo from '@components/logo'
-
-import '@styles/layouts/default.css'
+import Navbar from '@components/navbar'
 
 const DefaultLayout = () => {
     const navigate = useNavigate()
@@ -15,10 +13,8 @@ const DefaultLayout = () => {
 
     return (
         <main id='default_layout'>
-            <nav>
-                <Logo className='logo' />
-                <button className='profile-icon' />
-            </nav>
+            <Navbar />
+
             <Outlet />
         </main>
     )
