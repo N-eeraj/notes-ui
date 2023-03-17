@@ -8,10 +8,13 @@ const useRedirect = () => {
         window.addEventListener('redirect', ({ detail }) => {
             navigate(detail)
         })
-    
-      return () => {
-        window.removeEventListener('redirect', null)
-      }
+
+        const authToken = localStorage.getItem('authToken')
+        navigate(authToken ? '/' : '/login')
+
+        return () => {
+            window.removeEventListener('redirect', null)
+        }
     }, [])
 }
 

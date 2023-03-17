@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router'
 
 import Logo from '@components/logo'
 
-import useRedirect from '@utils/useRedirect'
+import useRedirect from '@hooks/useRedirect'
 
 import '@styles/layouts/user-form.css'
 
@@ -14,9 +14,6 @@ const UserLayout = () => {
     const [logoPosition, setLogoPosition] = useState(null)
 
     useEffect(() => {
-        const authToken = localStorage.getItem('authToken')
-        if (authToken)
-            return navigate('/')
         setLogoPosition(location.pathname === '/register' ? 'left' : 'right' )
     })
 
