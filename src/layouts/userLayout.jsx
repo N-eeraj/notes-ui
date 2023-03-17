@@ -3,6 +3,8 @@ import { Outlet, useLocation, useNavigate } from 'react-router'
 
 import Logo from '@components/logo'
 
+import useRedirect from '@utils/useRedirect'
+
 import '@styles/layouts/user-form.css'
 
 const UserLayout = () => {
@@ -18,15 +20,7 @@ const UserLayout = () => {
         setLogoPosition(location.pathname === '/register' ? 'left' : 'right' )
     })
 
-    useEffect(() => {
-        window.addEventListener('redirect', ({ detail }) => {
-            navigate(detail)
-        })
-    
-      return () => {
-        window.removeEventListener('redirect', null)
-      }
-    }, [])
+    useRedirect()
 
 
     return (

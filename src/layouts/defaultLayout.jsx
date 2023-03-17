@@ -3,6 +3,8 @@ import { Outlet, useNavigate } from 'react-router'
 
 import Navbar from '@components/navbar'
 
+import useRedirect from '@utils/useRedirect'
+
 import '@styles/layouts/navbar.css'
 
 const DefaultLayout = () => {
@@ -14,15 +16,7 @@ const DefaultLayout = () => {
             navigate('/login')
     })
 
-    useEffect(() => {
-        window.addEventListener('redirect', ({ detail }) => {
-            navigate(detail)
-        })
-    
-      return () => {
-        window.removeEventListener('redirect', null)
-      }
-    }, [])
+    useRedirect()
 
     return (
         <main id='default_layout'>
