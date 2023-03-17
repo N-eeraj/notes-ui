@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 
 import Logo from '@components/logo'
 
@@ -8,7 +8,6 @@ import useRedirect from '@hooks/useRedirect'
 import '@styles/layouts/user-form.css'
 
 const UserLayout = () => {
-    const navigate = useNavigate()
     const location = useLocation()
 
     const [logoPosition, setLogoPosition] = useState(null)
