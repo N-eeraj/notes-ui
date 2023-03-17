@@ -5,8 +5,8 @@ import App from '@/App'
 import { ToastContainer } from '@toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-    <ToastContainer />
-  </React.StrictMode>
+    <>
+        <App />
+        <ToastContainer />
+    </>
 )

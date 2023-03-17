@@ -1,10 +1,19 @@
 import api from '@axios'
 
+const redirect = new CustomEvent('redirect', )
+
 const saveToken = token => {
-    if (token)
+    let redirect
+    if (token) {
         localStorage.setItem('authToken', token)
-    else
+        redirect = '/'
+    }
+    else {
         localStorage.removeItem('authToken')
+        redirect = '/login'
+    }
+
+    window.dispatchEvent(new CustomEvent('redirect', { detail: redirect }))
 
     api.interceptors.request.use(config => {
         config.headers.Authorization = `Bearer ${localStorage.getItem('authToken')}`

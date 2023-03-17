@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import Input from '@components/UI/input'
@@ -36,7 +36,7 @@ const Register = () => {
             navigate('/')
         }
         catch (err) {
-            const message = err?.response ? err?.response?.data?.message : 'Oops something went wrong'
+            const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
             toast.error(message)
         }
         finally {
@@ -59,7 +59,7 @@ const Register = () => {
     }
 
     return (
-        <Fragment>
+        <>
             <div className='main-container'>
                 <Welcome
                     title='Welcome'
@@ -96,7 +96,7 @@ const Register = () => {
             </div>
 
             <Decoration imagePath='/images/decorator/register.svg' />
-        </Fragment>
+        </>
     )
 }
 

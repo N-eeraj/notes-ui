@@ -28,7 +28,6 @@ const Navbar = () => {
             const { data } = await api.post('/logout')
             if (!data.success) throw null
             saveToken(null)
-            navigate('/login')
             toast.success(data.message)
         }
         catch (err) {

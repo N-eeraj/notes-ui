@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import saveToken from '@utils/saveToken'
+
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
     headers: {
@@ -8,5 +10,15 @@ const api = axios.create({
         Authorization: `Bearer ${(localStorage.authToken || '')}`
     }
 })
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response.status === 401)
+            saveToken(null)
+
+        return Promise.reject(error)
+    }
+)
 
 export default api

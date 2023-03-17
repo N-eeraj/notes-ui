@@ -18,6 +18,16 @@ const UserLayout = () => {
         setLogoPosition(location.pathname === '/register' ? 'left' : 'right' )
     })
 
+    useEffect(() => {
+        window.addEventListener('redirect', ({ detail }) => {
+            navigate(detail)
+        })
+    
+      return () => {
+        window.removeEventListener('redirect', null)
+      }
+    }, [])
+
 
     return (
         <main id='user_layout'>

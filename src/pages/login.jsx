@@ -1,5 +1,4 @@
-import { Fragment, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
 
 import Input from '@components/UI/input'
 import Button from '@components/UI/button'
@@ -14,7 +13,6 @@ import api from '@axios'
 import saveToken from '@utils/saveToken'
 
 const Login = () => {
-    const navigate = useNavigate()
 
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
@@ -32,10 +30,9 @@ const Login = () => {
             toast.dismiss()
             toast.success(data.message)
             saveToken(data.token)
-            navigate('/')
         }
         catch (err) {
-            const message = err?.response?.data?.message || 'Oops something went wrong'
+            const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
             toast.error(message)
         }
         finally {
@@ -56,7 +53,7 @@ const Login = () => {
     }
 
     return (
-        <Fragment>
+        <>
             <Decoration imagePath='/images/decorator/login.svg' />
 
             <div className='main-container'>
@@ -88,7 +85,7 @@ const Login = () => {
                     route='/register'
                     linkText='Register Here' />
             </div>
-        </Fragment>
+        </>
     )
 }
 
