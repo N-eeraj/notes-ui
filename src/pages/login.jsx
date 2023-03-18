@@ -32,8 +32,14 @@ const Login = () => {
             useSaveToken(data.token)
         }
         catch (err) {
-            const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
-            toast.error(message)
+            if (Array.isArray(err?.response?.data?.message)) {
+                err.response.data.message
+                    .forEach(message => toast.error(message))
+            }
+            else {
+                const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
+                toast.error(message)
+            }
         }
         finally {
             setLoading(false)
