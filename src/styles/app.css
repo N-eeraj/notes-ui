@@ -22,6 +22,10 @@ a {
     font-size: 14pt;
 }
 
+button {
+    cursor: pointer;
+}
+
 @media (min-width: 600px) {
     a {
         font-size: 22pt;
