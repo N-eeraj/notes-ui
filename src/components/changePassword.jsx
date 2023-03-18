@@ -4,9 +4,12 @@ import Input from '@components/UI/input'
 import Text from '@components/UI/text'
 import Button from '@components/UI/button'
 
+import { toast } from '@toast'
+import { passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
+
 import '@styles/components/changePassword.css'
 
-const ChangePassword = () => {
+const ChangePassword = ({ closeChangePassword }) => {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -14,17 +17,28 @@ const ChangePassword = () => {
     const [loading, setLoading] = useState(false)
 
     const validateInputs = () => {
-        console.log(oldPassword)
-        console.log(newPassword)
-        console.log(confirmPassword)
+        try {
+            passwordValidator(oldPassword)
+            newPasswordValidator(newPassword)
+            confirmPasswordValidator(confirmPassword, newPassword)
+
+            setLoading(true)
+        }
+        catch (err) {
+            toast.error(err)
+        }
     }
 
     return (
         <div className='overlay'>
             <div className="modal">
 
-                <button
-                    className='close-modal' />
+                {
+                    !loading &&
+                    <button
+                        className='close-modal'
+                        onClick={ closeChangePassword } />
+                }
 
                 <Text
                     type='sub-title'

@@ -13,18 +13,21 @@ const DefaultLayout = () => {
 
     useRedirect()
 
-    const handleChangePassword = () => setShowPassword(true)
+    const toggleChangePassword = () => setShowPassword(value => !value)
 
     const hasAuthToken = localStorage.authToken
 
     if (hasAuthToken) {
         return (
             <main id='default_layout'>
-                <Navbar changePasswordEvent={ handleChangePassword } />
+                <Navbar openChangePassword={ toggleChangePassword } />
 
                 <Outlet />
 
-                { showPassword && <ChangePassword /> }
+                {
+                    showPassword &&
+                    <ChangePassword closeChangePassword={ toggleChangePassword } />
+                }
             </main>
         )
     }

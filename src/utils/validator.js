@@ -17,7 +17,7 @@ export const passwordValidator = password => {
 
 export const newPasswordValidator = password => {
     if (password.length < 8)
-        throw 'Passwords must be aleast 8 characters long'
+        throw 'New password must be aleast 8 characters long'
 }
 
 export const confirmPasswordValidator = (confirmPassword, password) => {

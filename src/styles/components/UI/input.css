@@ -27,6 +27,7 @@
     height: 25px;
     transform: translateY(-50%);
     background-size: contain;
+    background-color: transparent;
 }
 .password-toggle.show {
     background-image: url('/icons/password-show.svg');

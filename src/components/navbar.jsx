@@ -7,7 +7,7 @@ import { toast } from '@toast'
 import api from '@axios'
 import useSaveToken from '@hooks/useSaveToken'
 
-const Navbar = ({ changePasswordEvent }) => {
+const Navbar = ({ openChangePassword }) => {
     const navigate = useNavigate()
 
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
@@ -55,7 +55,7 @@ const Navbar = ({ changePasswordEvent }) => {
                 <ul className="options">
                     <li
                         className='option'
-                        onClick={ changePasswordEvent }>
+                        onClick={ openChangePassword }>
                         Change Password
                     </li>
                     <li
