@@ -10,7 +10,7 @@ import { emailValidator, passwordValidator } from '@validators'
 
 import { toast } from '@toast'
 import api from '@axios'
-import saveToken from '@utils/saveToken'
+import useSaveToken from '@hooks/useSaveToken'
 
 const Login = () => {
 
@@ -29,7 +29,7 @@ const Login = () => {
 
             toast.dismiss()
             toast.success(data.message)
-            saveToken(data.token)
+            useSaveToken(data.token)
         }
         catch (err) {
             const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'

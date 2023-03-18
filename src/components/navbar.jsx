@@ -5,9 +5,9 @@ import Logo from '@components/logo'
 
 import { toast } from '@toast'
 import api from '@axios'
-import saveToken from '@utils/saveToken'
+import useSaveToken from '@hooks/useSaveToken'
 
-const Navbar = () => {
+const Navbar = ({ changePasswordEvent }) => {
     const navigate = useNavigate()
 
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
@@ -17,17 +17,13 @@ const Navbar = () => {
         setIsOptionsOpen(value => !value)
     }
 
-    const handleChangePassword = () => {
-        console.log('handleChangePassword')
-    }
-
     const navigateHome = () => navigate('/')
 
     const handleLogout = async () => {
         try {
             const { data } = await api.post('/logout')
             if (!data.success) throw null
-            saveToken(null)
+            useSaveToken(null)
             toast.success(data.message)
         }
         catch (err) {
@@ -59,7 +55,7 @@ const Navbar = () => {
                 <ul className="options">
                     <li
                         className='option'
-                        onClick={ handleChangePassword }>
+                        onClick={ changePasswordEvent }>
                         Change Password
                     </li>
                     <li

@@ -11,7 +11,7 @@ import { emailValidator, passwordValidator, newPasswordValidator, confirmPasswor
 
 import { toast } from '@toast'
 import api from '@axios'
-import saveToken from '@utils/saveToken'
+import useSaveToken from '@hooks/useSaveToken'
 
 const Register = () => {
     const navigate = useNavigate()
@@ -32,7 +32,7 @@ const Register = () => {
             if (!(data.success && data.token)) throw null
             toast.dismiss()
             toast.success(data.message)
-            saveToken(data.token)
+            useSaveToken(data.token)
             navigate('/')
         }
         catch (err) {

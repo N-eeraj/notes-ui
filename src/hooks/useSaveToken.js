@@ -2,7 +2,7 @@ import api from '@axios'
 
 const redirect = new CustomEvent('redirect', )
 
-const saveToken = token => {
+const useSaveToken = token => {
     let redirect
     if (token) {
         localStorage.setItem('authToken', token)
@@ -13,7 +13,7 @@ const saveToken = token => {
         redirect = '/login'
     }
 
-    window.dispatchEvent(new CustomEvent('redirect', { detail: redirect }))
+    document.dispatchEvent(new CustomEvent('redirect', { detail: redirect }))
 
     api.interceptors.request.use(config => {
         config.headers.Authorization = `Bearer ${localStorage.getItem('authToken')}`
@@ -21,4 +21,4 @@ const saveToken = token => {
     })
 }
 
-export default saveToken
+export default useSaveToken

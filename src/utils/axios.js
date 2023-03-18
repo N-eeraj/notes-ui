@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import saveToken from '@utils/saveToken'
+import useSaveToken from '@hooks/useSaveToken'
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -15,8 +15,7 @@ api.interceptors.response.use(
     response => response,
     error => {
         if (error.response.status === 401)
-            saveToken(null)
-
+            useSaveToken(null)
         return Promise.reject(error)
     }
 )

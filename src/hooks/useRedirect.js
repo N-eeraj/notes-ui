@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const useRedirect = () => {
     const navigate = useNavigate()
     useEffect(() => {
-        window.addEventListener('redirect', ({ detail }) => {
+        document.addEventListener('redirect', ({ detail }) => {
             navigate(detail)
         })
 
@@ -13,7 +13,7 @@ const useRedirect = () => {
         navigate(authToken ? '/' : '/login')
 
         return () => {
-            window.removeEventListener('redirect', null)
+            document.removeEventListener('redirect', null)
         }
     }, [])
 }

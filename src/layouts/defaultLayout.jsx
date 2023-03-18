@@ -9,12 +9,16 @@ import '@styles/layouts/navbar.css'
 const DefaultLayout = () => {
     useRedirect()
 
+    const handleChangePassword = () => {
+        console.log('wow')
+    }
+
     const hasAuthToken = localStorage.authToken
 
     if (hasAuthToken) {
         return (
             <main id='default_layout'>
-                <Navbar />
+                <Navbar changePasswordEvent={ handleChangePassword } />
                 <Outlet />
             </main>
         )
