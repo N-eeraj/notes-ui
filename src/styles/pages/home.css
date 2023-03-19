@@ -1,0 +1,14 @@
+.home-container {
+    padding: 30px 5%;
+}
+
+.home-container .new-note .text {
+    color: var(--accent);
+}
+
+.home-container .notes-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    margin-top: 30px;
+}

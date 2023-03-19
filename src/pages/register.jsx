@@ -89,7 +89,7 @@ const Register = () => {
                         placeholder='Confirm Password' />
 
                     <Button
-                        stateChanger={ validateInputs }
+                        buttonClick={ validateInputs }
                         text='Register'
                         loading={ loading }
                         className='submit' />

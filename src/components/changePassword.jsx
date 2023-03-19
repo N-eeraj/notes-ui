@@ -91,7 +91,7 @@ const ChangePassword = ({ closeChangePassword }) => {
                         placeholder='Confirm Password' />
 
                     <Button
-                        stateChanger={ validateInputs }
+                        buttonClick={ validateInputs }
                         text='Change Password'
                         loading={ loading }
                         className='modal-action' />

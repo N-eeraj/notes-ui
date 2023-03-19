@@ -80,7 +80,7 @@ const Login = () => {
                         placeholder='Password' />
 
                     <Button
-                        stateChanger={ validateInputs }
+                        buttonClick={ validateInputs }
                         text='Login'
                         loading={ loading }
                         className='submit' />

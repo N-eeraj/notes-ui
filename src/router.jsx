@@ -5,7 +5,7 @@ import DefaultLayout from '@layouts/defaultLayout'
 
 import Login from '@pages/login'
 import Register from '@pages/register'
-import Home from '@pages/home'
+import Home from '@pages/note/home'
 import Create from '@pages/note/create'
 import View from '@pages/note/view'
 import Edit from '@pages/note/edit'
