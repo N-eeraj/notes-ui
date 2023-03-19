@@ -37,3 +37,23 @@ button {
         font-size: 16pt;
     }
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: var(--dark-grey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
+}
