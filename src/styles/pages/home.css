@@ -7,8 +7,21 @@
 }
 
 .home-container .notes-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: space-around;
+    gap: 25px;
     margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+    .home-container .notes-container {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .home-container .notes-container {
+        grid-template-columns: repeat(auto-fill, clamp(320px, 30%, 400px));
+    }
 }

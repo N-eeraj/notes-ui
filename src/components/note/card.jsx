@@ -1,3 +1,5 @@
+import Text from '@components/UI/text'
+
 import '@styles/components/note/card.css'
 
 const NotesCard = ({ id, title, preview, deleteEvent }) => {
