@@ -1,0 +1,66 @@
+#user_layout {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+
+    .logo {
+        align-self: center;
+        width: 125px;
+        margin-top: min(5vh, 50px);
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        margin-top: min(3vh, 25px);
+
+        .submit {
+            background-color: var(--dark-grey);
+            color: #FFF;
+        }
+    }
+
+
+    @media screen and (min-width: 600px) and (max-width: 899px) {
+        align-items: center;
+
+        .logo {
+            width: 200px;
+        }
+
+        .main-container {
+            width: 500px;
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+
+        .logo {
+            position: fixed;
+            top: 1vmin;
+            width: 100px;
+            margin-top: 0;
+
+            &.left {
+                left: 1vmin;
+            }
+            &.right {
+                right: 1vmin;
+            }
+        }
+        
+        .main-container {
+            width: 50vw;
+            padding: 5%;
+        }
+
+        .form {
+            max-width: 500px;
+        }
+    }
+}

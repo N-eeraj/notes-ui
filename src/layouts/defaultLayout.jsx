@@ -6,7 +6,7 @@ import ChangePassword from '@components/changePassword'
 
 import useRedirect from '@hooks/useRedirect'
 
-import '@styles/layouts/navbar.css'
+import '@styles/layouts/navbar.scss'
 
 const DefaultLayout = () => {
     const [showPassword, setShowPassword] = useState(false)

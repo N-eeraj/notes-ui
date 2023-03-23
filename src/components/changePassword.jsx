@@ -8,7 +8,7 @@ import { toast } from '@toast'
 import useAxios from '@hooks/useAxios'
 import { passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
 
-import '@styles/components/changePassword.css'
+import '@styles/components/changePassword.scss'
 
 const ChangePassword = ({ closeChangePassword }) => {
     const [oldPassword, setOldPassword] = useState('')

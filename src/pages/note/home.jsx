@@ -7,7 +7,7 @@ import NoteCard from '@components/note/card'
 
 import useAxios from '@hooks/useAxios'
 
-import '@styles/pages/home.css'
+import '@styles/pages/home.scss'
 
 const Home = () => {
     const [notes, setNotes] = useState([])

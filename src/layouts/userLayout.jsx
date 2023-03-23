@@ -5,7 +5,7 @@ import Logo from '@components/logo'
 
 import useRedirect from '@hooks/useRedirect'
 
-import '@styles/layouts/user-form.css'
+import '@styles/layouts/user-form.scss'
 
 const UserLayout = () => {
     const location = useLocation()

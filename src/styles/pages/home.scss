@@ -1,0 +1,47 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 30px;
+    padding: 30px 5%;
+    
+    .new-note {
+        width: fit-content;
+
+        .text {
+            color: var(--accent);
+        }
+    }
+
+    .notes-container {
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-around;
+        gap: 25px;
+        width: 100%;
+    }
+
+    .load-notes {
+        width: 100%;
+        background-color: transparent;
+        color: var(--dark-grey);
+        border: 1px solid var(--dark-grey);
+    }
+
+    @media screen and (min-width: 600px) {
+        .notes-container {
+            grid-template-columns: repeat(2, 50%);
+        }
+
+        .load-notes {
+            align-self: flex-end;
+            width: 150px;
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        .notes-container {
+            grid-template-columns: repeat(auto-fill, clamp(320px, 30%, 400px));
+        }
+    }
+}
