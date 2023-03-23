@@ -1,4 +1,4 @@
-import '@styles/components/user-form/decoration.css'
+import '@styles/components/user-form/decoration.scss'
 
 const Decoration = ({ imagePath }) => {
     return (

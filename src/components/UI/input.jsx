@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import '@styles/components/UI/input.css'
+import '@styles/components/UI/input.scss'
 
 const Input = ({ stateChanger, type, placeholder, focus }) => {
     const [passwordVisiblity, setPasswordVisiblity] = useState(false)
@@ -17,6 +17,7 @@ const Input = ({ stateChanger, type, placeholder, focus }) => {
                 onInput={ e => stateChanger(e.target.value) }
                 autoFocus={ focus }
                 className='custom-input' />
+
             {
                 type === 'password' &&
                 <button

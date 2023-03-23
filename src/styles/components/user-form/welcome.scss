@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: column;
     margin-top: min(3vh, 25px);
-}
 
-@media screen and (min-width: 600px) and (max-width: 899px) {
-    .welcome {
+    @media screen and (min-width: 600px) and (max-width: 899px) {
         text-align: center;
     }
 }

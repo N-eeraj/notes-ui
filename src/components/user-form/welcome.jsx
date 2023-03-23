@@ -1,6 +1,6 @@
 import Text from '@components/UI/text'
 
-import '@styles/components/user-form/welcome.css'
+import '@styles/components/user-form/welcome.scss'
 
 const Welcome = ({ title, text }) => {
     return (

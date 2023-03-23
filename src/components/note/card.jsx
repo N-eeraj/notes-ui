@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Text from '@components/UI/text'
 
-import '@styles/components/note/card.css'
+import '@styles/components/note/card.scss'
 
 const NotesCard = ({ id, title, preview, deleteEvent }) => {
     const navigate = useNavigate()

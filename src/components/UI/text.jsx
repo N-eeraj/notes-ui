@@ -1,4 +1,4 @@
-import '@styles/components/UI/text.css'
+import '@styles/components/UI/text.scss'
 
 const Text = ({ type, content, ...props }) => {
     let text

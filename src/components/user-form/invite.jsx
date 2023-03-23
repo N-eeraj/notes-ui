@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Text from '@components/UI/text'
 
-import '@styles/components/user-form/invite.css'
+import '@styles/components/user-form/invite.scss'
 
 const Invite = ({ prompt, route, linkText }) => {
     return (
