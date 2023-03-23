@@ -1,3 +1,5 @@
+@use '@styles/palette';
+
 #default_layout {
     margin-top: clamp(75px, 10vh, 100px);
 
@@ -10,7 +12,7 @@
         width: 100vw;
         height: clamp(75px, 10vh, 100px);
         padding: 0 5%;
-        background-color: var(--dark-grey);
+        background-color: palette.$dark-grey;
     }
 
     .logo {
@@ -32,11 +34,11 @@
         right: 0;
         width: 180px;
         list-style: none;
-        background-color: var(--dark-grey);
+        background-color: palette.$dark-grey;
 
         .option {
             padding: 5px 10px;
-            color: var(--primary);
+            color: palette.$primary;
             text-align: right;
             cursor: pointer;
         }

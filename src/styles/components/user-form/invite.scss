@@ -1,9 +1,11 @@
+@use '@styles/palette';
+
 .invite {
     margin-top: 30px;
     
     .link {
         margin-left: 10px;
-        color: var(--primary);
+        color: palette.$primary;
     }
 
     @media screen and (min-width: 600px) and (max-width: 899px) {

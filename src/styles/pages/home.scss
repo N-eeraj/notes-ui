@@ -1,3 +1,5 @@
+@use '@styles/palette';
+
 .home-container {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,7 @@
         width: fit-content;
 
         .text {
-            color: var(--accent);
+            color: palette.$accent;
         }
     }
 
@@ -24,8 +26,8 @@
     .load-notes {
         width: 100%;
         background-color: transparent;
-        color: var(--dark-grey);
-        border: 1px solid var(--dark-grey);
+        color: palette.$dark-grey;
+        border: 1px solid palette.$dark-grey;
     }
 
     @media screen and (min-width: 600px) {

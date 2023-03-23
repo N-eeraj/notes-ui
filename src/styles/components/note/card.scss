@@ -1,3 +1,5 @@
+@use '@styles/palette';
+
 .note-card {
     width: 100%;
     min-height: 200px;
@@ -11,7 +13,7 @@
         align-items: center;
 
         .sub-title {
-            color: var(--primary);
+            color: palette.$primary;
             font-size: 20pt;
         }
 
