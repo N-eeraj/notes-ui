@@ -5,8 +5,7 @@ import Text from '@components/UI/text'
 import Button from '@components/UI/button'
 import NoteCard from '@components/note/card'
 
-import api from '@axios'
-import { toast } from '@toast'
+import useAxios from '@hooks/useAxios'
 
 import '@styles/pages/home.css'
 
@@ -15,26 +14,18 @@ const Home = () => {
     const [notesCount, setNotesCount] = useState(0)
     const [loading, setLoading] = useState(false)
 
-    const fetchNotes = async pageNo => {
-        setLoading(true)
-        try {
-            const { data } = await api.get(`/note/list?page=${pageNo}`)
-            setNotes(notes => [...notes, ...data.data.notes])
-            setNotesCount(data.data.total_count)
-        }
-        catch (err) {
-            if (Array.isArray(err?.response?.data?.message)) {
-                err.response.data.message
-                    .forEach(message => toast.error(message))
-            }
-            else {
-                const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
-                toast.error(message)
-            }
-        }
-        finally {
-            setLoading(false)
-        }
+    const handleFetchNotes = ({ data }) => {
+        setNotes(notes => [...notes, ...data.notes])
+        setNotesCount(data.total_count)
+    }
+
+    const fetchNotes = pageNo => {
+        useAxios({
+            method: 'get',
+            url: `/note/list?page=${pageNo}`,
+            setLoading,
+            successCallBack: handleFetchNotes
+        })
     }
 
     const confirmDelete = id => {

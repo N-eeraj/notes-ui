@@ -9,7 +9,7 @@ import Decoration from '@components/user-form/decoration'
 import { emailValidator, passwordValidator } from '@validators'
 
 import { toast } from '@toast'
-import api from '@axios'
+import useAxios from '@hooks/useAxios'
 import useSaveToken from '@hooks/useSaveToken'
 
 const Login = () => {
@@ -18,40 +18,27 @@ const Login = () => {
     const[password, setPassword] = useState('')
     const[loading, setLoading] = useState(false)
 
-    const loginAPICall = async () => {
-        setLoading(true)
-        try {
-            const { data } = await api.post('/login', {
-                email,
-                password
-            })
-            if (!(data.success && data.token)) throw null
-
-            toast.dismiss()
-            toast.success(data.message)
-            useSaveToken(data.token)
-        }
-        catch (err) {
-            if (Array.isArray(err?.response?.data?.message)) {
-                err.response.data.message
-                    .forEach(message => toast.error(message))
-            }
-            else {
-                const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
-                toast.error(message)
-            }
-        }
-        finally {
-            setLoading(false)
-        }
+    const handleLogin = ({ message, token }) => {
+        toast.dismiss()
+        toast.success(message)
+        useSaveToken(token)
     }
-
+    
     const validateInputs = () => {
         try {
             emailValidator(email)
             passwordValidator(password)
 
-            loginAPICall()
+            useAxios({
+                method: 'post',
+                url: '/login',
+                body: {
+                    email,
+                    password
+                },
+                setLoading,
+                successCallBack: handleLogin
+            })
         }
         catch (err) {
             toast.error(err)

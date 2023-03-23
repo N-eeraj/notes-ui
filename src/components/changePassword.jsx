@@ -5,7 +5,7 @@ import Text from '@components/UI/text'
 import Button from '@components/UI/button'
 
 import { toast } from '@toast'
-import api from '@axios'
+import useAxios from '@hooks/useAxios'
 import { passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
 
 import '@styles/components/changePassword.css'
@@ -17,32 +17,10 @@ const ChangePassword = ({ closeChangePassword }) => {
 
     const [loading, setLoading] = useState(false)
 
-    const updatePasswordAPICall = async () => {
-        setLoading(true)
-        try {
-            const { data } = await api.patch('/change-password', {
-                old_password: oldPassword,
-                new_password: newPassword,
-                confirm_password: confirmPassword
-            })
-            if (!data.success) throw null
-            toast.dismiss()
-            toast.success(data.message)
-            closeChangePassword()
-        }
-        catch (err) {
-            if (Array.isArray(err?.response?.data?.message)) {
-                err.response.data.message
-                    .forEach(message => toast.error(message))
-            }
-            else {
-                const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
-                toast.error(message)
-            }
-        }
-        finally {
-            setLoading(false)
-        }
+    const handleChangePassword = ({ message }) => {
+        toast.dismiss()
+        toast.success(message)
+        closeChangePassword()
     }
 
     const validateInputs = () => {
@@ -51,7 +29,17 @@ const ChangePassword = ({ closeChangePassword }) => {
             newPasswordValidator(newPassword)
             confirmPasswordValidator(confirmPassword, newPassword)
 
-            updatePasswordAPICall()
+            useAxios({
+                method: 'patch',
+                url: '/change-password',
+                body: {
+                    old_password: oldPassword,
+                    new_password: newPassword,
+                    confirm_password: confirmPassword
+                },
+                setLoading,
+                successCallBack: handleChangePassword
+            })
         }
         catch (err) {
             toast.error(err)

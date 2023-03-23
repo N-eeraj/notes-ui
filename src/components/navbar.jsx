@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import Logo from '@components/logo'
 
 import { toast } from '@toast'
-import api from '@axios'
+import useAxios from '@hooks/useAxios'
 import useSaveToken from '@hooks/useSaveToken'
 
 const Navbar = ({ openChangePassword }) => {
@@ -19,17 +19,15 @@ const Navbar = ({ openChangePassword }) => {
 
     const navigateHome = () => navigate('/')
 
-    const handleLogout = async () => {
-        try {
-            const { data } = await api.post('/logout')
-            if (!data.success) throw null
-            useSaveToken(null)
-            toast.success(data.message)
-        }
-        catch (err) {
-            const message = err?.response?.data?.message || err?.message || 'Oops something went wrong'
-            toast.error(message)
-        }
+    const handleLogout = () => {
+        useAxios({
+            method: 'post',
+            url: '/logout',
+            successCallBack: ({ message }) => {
+                useSaveToken(null)
+                toast.success(message)
+            }
+        })
     }
 
     useEffect(() => {
