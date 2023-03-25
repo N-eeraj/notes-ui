@@ -24,13 +24,6 @@
             text-align: center;
         }
 
-        .modal-body {
-            display: flex;
-            flex-direction: column;
-            row-gap: 15px;
-            margin-top: 20px;
-        }
-
         .modal-action {
             background-color: palette.$primary;
             color: #FFF;

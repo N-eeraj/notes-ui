@@ -1,14 +1,13 @@
 import { useState } from 'react'
 
 import Input from '@components/UI/input'
-import Text from '@components/UI/text'
-import Button from '@components/UI/button'
+import Modal from '@components/UI/modal'
 
 import { toast } from '@toast'
 import useAxios from '@hooks/useAxios'
 import { passwordValidator, newPasswordValidator, confirmPasswordValidator } from '@validators'
 
-import '@styles/components/changePassword.scss'
+import '@styles/components/changePassword.css'
 
 const ChangePassword = ({ closeChangePassword }) => {
     const [oldPassword, setOldPassword] = useState('')
@@ -47,45 +46,27 @@ const ChangePassword = ({ closeChangePassword }) => {
     }
 
     return (
-        <div className='overlay'>
-            <div className="modal">
+        <Modal
+            title='Change Password'
+            loading={ loading }
+            closeModal={ closeChangePassword }
+            modalAction={ validateInputs }>
 
-                {
-                    !loading &&
-                    <button
-                        className='close-modal'
-                        onClick={ closeChangePassword } />
-                }
+            <Input
+                stateChanger={ setOldPassword }
+                type='password'
+                placeholder='Old Password' />
 
-                <Text
-                    type='sub-title'
-                    content='Change Password'
-                    className='modal-title' />
+            <Input
+                stateChanger={ setNewPassword }
+                type='password'
+                placeholder='New Password' />
 
-                <div className="modal-body">
-                    <Input
-                        stateChanger={ setOldPassword }
-                        type='password'
-                        placeholder='Old Password' />
-
-                    <Input
-                        stateChanger={ setNewPassword }
-                        type='password'
-                        placeholder='New Password' />
-
-                    <Input
-                        stateChanger={ setConfirmPassword }
-                        type='password'
-                        placeholder='Confirm Password' />
-
-                    <Button
-                        buttonClick={ validateInputs }
-                        text='Change Password'
-                        loading={ loading }
-                        className='modal-action' />
-                </div>
-            </div>
-        </div>
+            <Input
+                stateChanger={ setConfirmPassword }
+                type='password'
+                placeholder='Confirm Password' />
+        </Modal>
     )
 }
 
