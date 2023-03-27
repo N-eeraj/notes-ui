@@ -1,16 +1,16 @@
 import '@styles/components/UI/text.scss'
 
-const Text = ({ type, content, ...props }) => {
+const Text = ({ type, content, className }) => {
     let text
     switch (type) {
         case 'title':
-            text = <h1 className={ `text ${props.className} title` }>{ content }</h1>
+            text = <h1 className={ `text ${className} title` }>{ content }</h1>
             break
         case 'sub-title':
-            text = <strong className={ `text ${props.className} sub-title` }>{ content }</strong>
+            text = <strong className={ `text ${className} sub-title` }>{ content }</strong>
             break
         default:
-            text = <span className={ `text ${props.className}` }>{ content }</span>
+            text = <span className={ `text ${className}` }>{ content }</span>
     }
     return text
 }

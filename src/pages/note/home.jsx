@@ -19,6 +19,8 @@ const Home = () => {
     const [selectedNote, setSelectedNote] = useState(null)
     const [loadingDelete, setLoadingDelete] = useState(false)
 
+    const selectedNoteTitle = notes.find(({ id }) => id === selectedNote)?.title
+
     const handleFetchNotes = ({ data }) => {
         setNotes(notes => [...notes, ...data.notes])
         setNotesCount(data.total_count)
@@ -107,7 +109,7 @@ const Home = () => {
                     loading={ loadingDelete }
                     closeModal={ closeConfirmDelete }
                     modalAction={ deleteNote }>
-                        You are about to delete this note, are you sure you want to continue ?
+                        You are about to delete the "{ selectedNoteTitle }" note, are you sure you want to continue ?
                 </Modal>
             }
         </div>
