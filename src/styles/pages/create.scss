@@ -1,0 +1,11 @@
+@use '@styles/palette';
+
+.save-button {
+    width: 100%;
+    max-width: 125px;
+    height: unset;
+    padding: 0;
+    background-color: palette.$accent;
+    color: #FFF;
+    font-size: 1.2rem;
+}

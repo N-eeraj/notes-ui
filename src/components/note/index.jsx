@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 import Input from '@components/UI/input'
 
+import '@styles/components/note/main.scss'
+
 const Note = ({ editable=false, title='', body='', updateTitle, updateBody, children }) => {
     const navigate = useNavigate()
 

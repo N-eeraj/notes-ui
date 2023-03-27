@@ -1,0 +1,65 @@
+.note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    width: 90%;
+    margin: 5%;
+
+    .header, .body {
+        width: 100%;
+        max-width: 600px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+
+        div:first-child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 65%;
+
+            .back {
+                width: 25px;
+                height: 25px;
+                background-image: url('/icons/back.svg');
+                background-size: contain;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .title {
+                width: calc(100% - 30px);
+
+                &.input-wrapper {
+                    min-width: unset;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            width: 30%;
+        }
+    }
+
+    .body {
+        height: 70dvh;
+        overflow-y: auto;
+        resize: none;
+    }
+
+    @media screen and (min-width: 1200px) {
+        .header, .body {
+            max-width: 1000px;
+        }
+
+        .body {
+            height: 60vh;
+        }
+    }
+}

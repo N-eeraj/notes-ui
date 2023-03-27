@@ -2,7 +2,8 @@ import { useState } from 'react'
 
 import Note from '@components/note'
 import Button from '@components/UI/Button'
-export default function() {
+
+import '@styles/pages/create.scss'
 
 const Create = () => {
     const [title, setTitle] = useState('')
