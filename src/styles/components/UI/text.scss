@@ -1,4 +1,7 @@
 .text {
+    max-width: inherit;
+    display: block;
+    word-wrap: break-word;
     font-size: 14pt;
     
     &.sub-title {
