@@ -54,16 +54,19 @@ const ChangePassword = ({ closeChangePassword }) => {
             modalAction={ validateInputs }>
 
             <Input
+                value={ oldPassword }
                 stateChanger={ setOldPassword }
                 type='password'
                 placeholder='Old Password' />
 
             <Input
+                value={ newPassword }
                 stateChanger={ setNewPassword }
                 type='password'
                 placeholder='New Password' />
 
             <Input
+                value={ confirmPassword }
                 stateChanger={ setConfirmPassword }
                 type='password'
                 placeholder='Confirm Password' />

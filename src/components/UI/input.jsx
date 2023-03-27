@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import '@styles/components/UI/input.scss'
 
-const Input = ({ stateChanger, type, placeholder, focus, className }) => {
+const Input = ({ value, stateChanger, type, placeholder, focus, className }) => {
     const [passwordVisiblity, setPasswordVisiblity] = useState(false)
 
     const togglePasswordVisibility = () => {
@@ -12,6 +12,7 @@ const Input = ({ stateChanger, type, placeholder, focus, className }) => {
     return (
         <div className={`input-wrapper ${className}`}>
             <input
+                value={ value }
                 type={ passwordVisiblity ? 'text' : type }
                 placeholder={ placeholder }
                 onInput={ e => stateChanger(e.target.value) }

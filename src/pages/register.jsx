@@ -61,17 +61,20 @@ const Register = () => {
 
                 <div className='form'>
                     <Input
+                        value={ email }
                         stateChanger={ setEmail }
                         type='email'
                         placeholder='Email Address'
                         focus={ true } />
 
                     <Input
+                        value={ password }
                         stateChanger={ setPassword }
                         type='password'
                         placeholder='Password' />
 
                     <Input
+                        value={ confirmPassword }
                         stateChanger={ setConfirmPassword }
                         type='password'
                         placeholder='Confirm Password' />

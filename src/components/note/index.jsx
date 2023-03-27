@@ -4,7 +4,7 @@ import Input from '@components/UI/input'
 
 import '@styles/components/note/main.scss'
 
-const Note = ({ editable=false, title='', body='', updateTitle, updateBody, children }) => {
+const Note = ({ editable, title, body, updateTitle, updateBody, children }) => {
     const navigate = useNavigate()
 
     const handleBack = () => {
@@ -22,6 +22,7 @@ const Note = ({ editable=false, title='', body='', updateTitle, updateBody, chil
                     {
                         editable ?
                         <Input
+                            value={ title }
                             className='title'
                             stateChanger={ updateTitle } />
                         :
@@ -40,6 +41,7 @@ const Note = ({ editable=false, title='', body='', updateTitle, updateBody, chil
             {
                 editable ?
                 <textarea
+                    value={ body }
                     placeholder='Note Content'
                     className='body'
                     onInput={ e => updateBody(e.target.value) } />
