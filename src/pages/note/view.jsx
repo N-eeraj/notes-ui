@@ -14,6 +14,8 @@ const View = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
+    const handleEdit = () => navigate(`/note/edit/${id}`)
+
     useEffect(() => {
         useAxios({
             method: 'get',
@@ -32,6 +34,9 @@ const View = () => {
             body={ body }
             updateTitle={ setTitle }
             updateBody={ setBody }>
+            <button
+                className='action edit'
+                onClick={ handleEdit } />
         </Note>
     )
 }
