@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import Input from '@components/UI/input'
+import Text from '@components/UI/text'
 
 import '@styles/components/note/main.scss'
 
@@ -23,12 +24,13 @@ const Note = ({ editable, title, body, updateTitle, updateBody, children }) => {
                         editable ?
                         <Input
                             value={ title }
-                            className='title'
+                            className='note-title'
                             stateChanger={ updateTitle } />
                         :
-                        <span className='title'>
-                            { title }
-                        </span>
+                        <Text
+                            type='sub-title'
+                            content={ title }
+                            className='note-title' />
                     }
                 </div>
 

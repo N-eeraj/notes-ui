@@ -1,3 +1,5 @@
+@use '@styles/palette';
+
 .note {
     display: flex;
     flex-direction: column;
@@ -27,15 +29,19 @@
                 height: 25px;
                 background-image: url('/icons/back.svg');
                 background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
                 background-color: transparent;
-                cursor: pointer;
             }
 
-            .title {
+            .note-title {
                 width: calc(100% - 30px);
 
                 &.input-wrapper {
                     min-width: unset;
+                }
+                &.text {
+                    color: palette.$primary;
                 }
             }
         }
