@@ -48,6 +48,7 @@ const ChangePassword = ({ closeChangePassword }) => {
     return (
         <Modal
             title='Change Password'
+            buttonText='Change Password'
             loading={ loading }
             closeModal={ closeChangePassword }
             modalAction={ validateInputs }>

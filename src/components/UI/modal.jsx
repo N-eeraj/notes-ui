@@ -3,7 +3,7 @@ import Button from '@components/UI/button'
 
 import '@styles/components/UI/modal.scss'
 
-const Modal = ({ title, modalAction, loading, closeModal, children }) => {
+const Modal = ({ title, modalAction, loading, closeModal, buttonText, children }) => {
 
     return (
         <div className='overlay'>
@@ -26,7 +26,7 @@ const Modal = ({ title, modalAction, loading, closeModal, children }) => {
 
                     <Button
                         buttonClick={ modalAction }
-                        text='Change Password'
+                        text={ buttonText }
                         loading={ loading }
                         className='modal-action' />
                 </div>
